@@ -1,10 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Library.Models;
 
 #nullable disable
 
-namespace ConsoleApp1.Models
+namespace Library.Data
 {
     public partial class LibraryContext : DbContext
     {
@@ -30,7 +31,8 @@ namespace ConsoleApp1.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlite("Data Source = C:\\Users\\chikwork\\Desktop\\АЛЛА\\проектБД\\Library.db");
+                //optionsBuilder.UseSqlite("Data Source = C:\\Users\\chikwork\\Desktop\\АЛЛА\\проектБД\\Library.db");
+                optionsBuilder.UseSqlServer("Data Source = (localdb)\\mssqllocaldb; Database=Dblybrary; Trusted_Connection=True");
             }
         }
 
@@ -45,11 +47,11 @@ namespace ConsoleApp1.Models
 
                 entity.Property(e => e.Author)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.BookTitle)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.GenId)
                     .HasColumnType("INT")
@@ -87,7 +89,7 @@ namespace ConsoleApp1.Models
 
                 entity.Property(e => e.Address)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.BirthDate)
                     .IsRequired()
@@ -95,20 +97,20 @@ namespace ConsoleApp1.Models
 
                 entity.Property(e => e.Gender)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.PassportData)
                     .IsRequired()
-                    .HasColumnType("STRING")
+                    .HasColumnType("NVARCHAR")
                     .HasColumnName("passportData");
 
                 entity.Property(e => e.Phone)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.PositionId)
                     .HasColumnType("INT")
@@ -131,11 +133,11 @@ namespace ConsoleApp1.Models
 
                 entity.Property(e => e.Description)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.GenTitle)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
             });
 
             modelBuilder.Entity<IssuedBook>(entity =>
@@ -164,7 +166,7 @@ namespace ConsoleApp1.Models
 
                 entity.Property(e => e.ReturnMark)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.HasOne(d => d.Book)
                     .WithMany()
@@ -191,17 +193,17 @@ namespace ConsoleApp1.Models
 
                 entity.Property(e => e.Demands)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.Duties)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.PositionTitle)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
-                entity.Property(e => e.Salary).HasColumnType("DOUBLE");
+                entity.Property(e => e.Salary).HasColumnType("Float");
             });
 
             modelBuilder.Entity<Publisher>(entity =>
@@ -217,15 +219,15 @@ namespace ConsoleApp1.Models
 
                 entity.Property(e => e.Address)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.City)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.PublicistTitle)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
             });
 
             modelBuilder.Entity<Reader>(entity =>
@@ -241,7 +243,7 @@ namespace ConsoleApp1.Models
 
                 entity.Property(e => e.Address)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.BirthDate)
                     .IsRequired()
@@ -249,19 +251,19 @@ namespace ConsoleApp1.Models
 
                 entity.Property(e => e.Gender)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.PassportData)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
 
                 entity.Property(e => e.Phone)
                     .IsRequired()
-                    .HasColumnType("STRING");
+                    .HasColumnType("NVARCHAR");
             });
 
             OnModelCreatingPartial(modelBuilder);

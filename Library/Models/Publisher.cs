@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace ConsoleApp1.Models
+namespace Library.Models
 {
     public partial class Publisher
     {
@@ -13,9 +13,9 @@ namespace ConsoleApp1.Models
         }
 
         public long PubId { get; set; }
-        public byte[] PublicistTitle { get; set; }
-        public byte[] City { get; set; }
-        public byte[] Address { get; set; }
+        public string PublicistTitle { get; set; }
+        public string City { get; set; }
+        public string Address { get; set; }
 
         public virtual ICollection<Book> Books { get; set; }
     }

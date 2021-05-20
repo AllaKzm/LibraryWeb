@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace ConsoleApp1.Models
+namespace Library.Models
 {
     public partial class Position
     {
@@ -13,10 +13,10 @@ namespace ConsoleApp1.Models
         }
 
         public long PositionId { get; set; }
-        public byte[] PositionTitle { get; set; }
+        public string PositionTitle { get; set; }
         public double Salary { get; set; }
-        public byte[] Duties { get; set; }
-        public byte[] Demands { get; set; }
+        public string Duties { get; set; }
+        public string Demands { get; set; }
 
         public virtual ICollection<Employee> Employees { get; set; }
     }

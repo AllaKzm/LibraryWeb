@@ -3,17 +3,17 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace ConsoleApp1.Models
+namespace Library.Models
 {
     public partial class Employee
     {
         public long EmpId { get; set; }
-        public byte[] Name { get; set; }
-        public byte[] BirthDate { get; set; }
-        public byte[] Gender { get; set; }
-        public byte[] Address { get; set; }
-        public byte[] Phone { get; set; }
-        public byte[] PassportData { get; set; }
+        public string Name { get; set; }
+        public DateTime BirthDate { get; set; }
+        public string Gender { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public string PassportData { get; set; }
         public long PositionId { get; set; }
 
         public virtual Position Position { get; set; }

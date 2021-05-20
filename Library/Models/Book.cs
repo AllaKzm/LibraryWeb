@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace ConsoleApp1.Models
+namespace Library.Models
 {
     public partial class Book
     {
         public long BookId { get; set; }
-        public byte[] BookTitle { get; set; }
-        public byte[] Author { get; set; }
-        public byte[] PubYear { get; set; }
+        public string BookTitle { get; set; }
+        public string Author { get; set; }
+        public DateTime PubYear { get; set; }
         public long GenId { get; set; }
         public long PubId { get; set; }
 
